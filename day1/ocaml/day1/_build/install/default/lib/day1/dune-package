@@ -1,1 +1,4 @@
-../../../../default/day1.dune-package
+(lang dune 3.6)
+(name day1)
+(sections (lib .) (bin ../../bin))
+(files (lib (META dune-package opam)) (bin (day1.exe)))

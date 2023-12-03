@@ -1007,22 +1007,22 @@ let input_arr = String.split_on_char '\n' input;;
 
 let input_filter = List.filter (fun x -> x <> "") input_arr;;
 
-let is_digit = function '0' .. '9' -> true | _ -> false
+let is_digit = function '0' .. '9' -> true | _ -> false;;
 
-let get_num_run arr = 
+(* let get_num_run arr = 
   match arr with
-  | is_digit arr -> arr ^ get_first_num arr   
+  | is_digit arr -> arr ^ get_first_num arr    *)
 
 let rec list_car ch = 
   match ch with
   | "" -> []
-  | is_digit (String.get ch 0) == false -> [] :: list_car (String.sub ch 1 (String.length ch - 1))
+  (* | is_digit (String.get ch 0) == false -> [] :: list_car (String.sub ch 1 (String.length ch - 1)) *)
   | ch -> String.get ch 0 :: list_car (String.sub ch 1 (String.length ch - 1));;
 
-let get_first_num a =
-  match a
+let rec get_first_num char_list =
+  if is_digit (List.nth char_list 0) then (List.nth char_list 0) else get_first_num (List.tl char_list);; 
 
-let rec add_str_nums s = 
+(* let rec add_str_nums s =  *)
 
 
-list_car (List.nth input_filter 0);; 
+print_endline (String.make 1 (get_first_num (list_car (List.nth input_filter 0))));; 
